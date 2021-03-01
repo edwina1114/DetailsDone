@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FB5D2C"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/TV_detailsname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.499"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="食物名稱" />
+
+        <ImageView
+            android:id="@+id/IV_detailsimage"
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="48dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.109"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintVertical_bias="1.0"
+            tools:src="@drawable/sidedish10" />
+
+
+        <TextView
+            android:id="@+id/formoredetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginBottom="28dp"
+            android:text="更多詳情!!!"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="@+id/IV_detailsimage"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/links"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="24dp"
+            android:textSize="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/formoredetails"
+            tools:text="網址" />
+
+        <TextView
+            android:id="@+id/need"
+            android:layout_width="228dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="56dp"
+            android:text="@string/need_food"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/IV_detailsimage"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/TV_food_need"
+            android:layout_width="266dp"
+            android:layout_height="76dp"
+            android:layout_marginTop="52dp"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.75"
+            app:layout_constraintStart_toEndOf="@+id/need"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="食材" />
+
+        <TextView
+            android:id="@+id/sauce"
+            android:layout_width="131dp"
+            android:layout_height="27dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="84dp"
+            android:text="@string/sauce"
+            android:textSize="30sp"
+            app:layout_constraintStart_toEndOf="@+id/IV_detailsimage"
+            app:layout_constraintTop_toBottomOf="@+id/need" />
+
+        <TextView
+            android:id="@+id/TV_sauce"
+            android:layout_width="263dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="36dp"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.064"
+            app:layout_constraintStart_toEndOf="@+id/sauce"
+            app:layout_constraintTop_toBottomOf="@+id/TV_food_need"
+            tools:text="調味料" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
