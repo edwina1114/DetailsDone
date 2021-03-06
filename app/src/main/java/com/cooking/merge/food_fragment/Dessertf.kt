@@ -15,76 +15,91 @@ import com.cooking.merge.adapters.FooditemsAdapter
 import com.cooking.merge.adapters.OnFoodItemClickListener
 import com.cooking.merge.model.FooditemsModel
 import kotlinx.android.synthetic.main.fooditems_layout.view.*
-// , OnFoodItemClickListener
-class Dessertf : Fragment() {
-//    private var recyclerView: RecyclerView? = null
-//    lateinit var gridLayoutManager: GridLayoutManager
-//    lateinit var foodList: ArrayList<FooditemsModel>
-//    lateinit var foodiesAdapters: FooditemsAdapter  //繼承FooditemsAdapter
-//
-//    ////////////////////////////////////////////////array////////////////////////////////////////////////
-//    private val titles = arrayOf(
-//        "布丁(小美冰淇淋版本)", "檸檬醋", "蔬果綠拿鐵", "金黃芝麻地瓜", "水果小冰棒", "微笑香蕉蛋糕",
-//        "蜂蜜檸檬梅漬小番茄", "法式蘋果克拉芙緹", "巧克力夏威夷豆餅乾", "髒髒派", "迷你優格牛奶司康"
-//    )
-//
-//    private val images = arrayOf(
-//        R.drawable.dessert1, R.drawable.dessert2, R.drawable.dessert3, R.drawable.dessert4,
-//        R.drawable.dessert5, R.drawable.dessert6, R.drawable.dessert7, R.drawable.dessert8,
-//        R.drawable.dessert9, R.drawable.dessert10, R.drawable.dessert11
-//    )
-//
-//    private val DetailsSteps = arrayOf(
-//        "布丁(小美冰淇淋版本)", "檸檬醋", "蔬果綠拿鐵", "金黃芝麻地瓜", "水果小冰棒", "微笑香蕉蛋糕",
-//        "蜂蜜檸檬梅漬小番茄", "法式蘋果克拉芙緹", "巧克力夏威夷豆餅乾", "髒髒派", "迷你優格牛奶司康"
-//    )
-//    ////////////////////////////////////////////////array////////////////////////////////////////////////
-//
-//    //(第二發生)顯示dessert_layout的介面
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-//                              savedInstanceState: Bundle?): View? {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fooditems_layout, container, false)
-//    }
-//
-//    //(第三發生)initialize recyclerView and layout manager
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        recyclerView = view.my_recycler_view
-//
-//        // design the gridlayout & set recyclerview
-//        gridLayoutManager = GridLayoutManager(
-//            requireContext(), 3,
-//            LinearLayoutManager.VERTICAL, false
-//        )
-//        recyclerView?.layoutManager = gridLayoutManager
-//        recyclerView?.setHasFixedSize(true)
-//        // design the gridlayout & set recyclerview
-//
-//        foodList = ArrayList()
-//        foodList = addfood()
-//        foodiesAdapters = FooditemsAdapter(requireContext(), this, foodList )   //adapter按照位置擺放foodlist裡的所有物品
-//        recyclerView?.adapter = foodiesAdapters
-//
-//    }
-//
-//
-//    fun addfood(): ArrayList<FooditemsModel> {
-//        val addlist: ArrayList<FooditemsModel> = ArrayList()
-//        for (i in titles.indices) {
-//            val model = FooditemsModel(images[i], titles[i],DetailsSteps[i])
-//            addlist.add(model)
-//        }
-//        return addlist
-//    }
-//
-//    override fun onItemClick(item: FooditemsModel, position: Int)
-//    {
-//        val intent = Intent(context, BreakfastDetailsf::class.java)
-//        intent.putExtra("FOODIMAGE", item.iconsChar.toString())
-//        intent.putExtra("FOODNAME", item.alphaChar)
-//        intent.putExtra("FOODSTEP", item.detailsstep)
-//
-//        startActivity(intent)
-//    }
 
+class Dessertf : Fragment(), OnFoodItemClickListener {
+    private var recyclerView: RecyclerView? = null
+    lateinit var gridLayoutManager: GridLayoutManager
+    lateinit var foodList: ArrayList<FooditemsModel>
+    lateinit var foodiesAdapters: FooditemsAdapter  //繼承FooditemsAdapter
+
+    ////////////////////////////////////////////////array////////////////////////////////////////////////
+    private val titles = arrayOf(
+        "布丁(小美冰淇淋版本)", "檸檬醋", "蔬果綠拿鐵", "金黃芝麻地瓜", "水果小冰棒", "微笑香蕉蛋糕",
+        "蜂蜜檸檬梅漬小番茄", "法式蘋果克拉芙緹", "巧克力夏威夷豆餅乾", "髒髒派", "迷你優格牛奶司康"
+    )
+
+    private val images = arrayOf(
+        R.drawable.dessert1, R.drawable.dessert2, R.drawable.dessert3, R.drawable.dessert4,
+        R.drawable.dessert5, R.drawable.dessert6, R.drawable.dessert7, R.drawable.dessert8,
+        R.drawable.dessert9, R.drawable.dessert10, R.drawable.dessert11
+    )
+
+    private val ingredients = arrayOf(
+        "牛奶 100c.c\n" + "砂糖 少許\n" + "雞蛋 2顆\n" + "小美冰淇淋 適量", "檸檬 1斤", "蔬菜 適量\n" + "水果 適量\n" +
+        "堅果(可有可無) 1小匙\n" + "開水 適量", "地瓜 1顆", "水果 適量\n" + "蘋果汁/乳酸飲料 適量\n" + "短冰棒棍/水果叉 適量",
+        "<香蕉麵糊>\n" + "熟香蕉 2大根\n" + "蛋 1顆\n" + "蔗糖/紅糖 150克\n" + "無鹽奶油 110克\n" + "希臘式優格(無糖為佳) 60克\n" +
+        "香草精 1小匙\n" + "低筋麵粉 125克\n" + "小蘇打粉 1小匙\n" + "鹽 1小撮", "小番茄 300克\n" + "酸梅 10~15顆\n" + "熱開水 100ml\n" +
+        "蜂蜜 5大匙\n" + "新鮮檸檬汁 1顆","大蘋果 1顆\n" + "奶油 10克" + "低筋麵粉 20克" + "蛋 1顆" + "牛奶 90克" + "糖粉(裝飾用) 適量" + "薄荷葉(裝飾用) 兩片",
+        "無鹽奶油 70克\n" + "黑糖粉 55克\n" +  "香草精 1/2小匙\n" + "蛋黃 1顆\n" + "中筋麵粉 110克\n" + "蘇打粉 1/4小匙\n" +
+        "巧克力豆 50克\n" + "無調味夏威夷豆 50克", "冷凍起酥皮 3片\n" + "巧克力 50克", "無鹽奶油 60克\n" + "低筋麵粉 225克\n" + "全麥麵粉 25克\n" +
+        "泡打粉 8克\n" + "原味優格 70克\n" + "鮮奶 30克\n" + "雞蛋 1顆 \n" + "蛋黃 1顆\n" + "蔓越莓乾/葡萄乾(可略) 50克\n" + "高筋麵粉 適量"
+        )
+
+    private val sauses = arrayOf(
+        "不須調味料", "冰糖 150公克\n" + "高粱醋 1斤", "不須調味料", "黑芝麻 1匙\n" + "鹽巴 少許\n" + "蜂蜜 適量", "不須調味料",
+        "<奶油乳酪餡> \n" + "Cream Cheese 110克\n" + "蛋 1顆\n" + "白砂糖 50克\n" + "低筋麵粉 3大匙", "不須調味料",
+        "三溫糖/紅糖/蔗糖 10克" + "香草糖/白砂糖/上白糖 20克", "白糖 45克\n" + "鹽 1/4小匙\n", "可可粉 適量",
+        "白砂糖 40克\n" + "鹽 4克 \n"
+    )
+    ////////////////////////////////////////////////array////////////////////////////////////////////////
+
+    //(第二發生)顯示dessert_layout的介面
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fooditems_layout, container, false)
+    }
+
+    //(第三發生)initialize recyclerView and layout manager
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        recyclerView = view.my_recycler_view
+
+        // design the gridlayout & set recyclerview
+        gridLayoutManager = GridLayoutManager(
+            requireContext(), 3,
+            LinearLayoutManager.VERTICAL, false
+        )
+        recyclerView?.layoutManager = gridLayoutManager
+        recyclerView?.setHasFixedSize(true)
+        // design the gridlayout & set recyclerview
+
+        foodList = ArrayList()
+        foodList = addfood()
+        foodiesAdapters = FooditemsAdapter(requireContext(), this, foodList )   //adapter按照位置擺放foodlist裡的所有物品
+        recyclerView?.adapter = foodiesAdapters
+
+    }
+
+
+    fun addfood(): ArrayList<FooditemsModel> {
+        //array的方法 (way1)
+        val addlist: ArrayList<FooditemsModel> = ArrayList()
+        for (i in titles.indices)
+        {
+            val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i])
+            addlist.add(model)
+        }
+        return addlist
+    }
+
+    override fun onItemClick(item: FooditemsModel, position: Int)
+    {
+        val intent = Intent(context, FoodDetailsf::class.java)
+        intent.putExtra("FOODIMAGE", item.iconsChar.toString())
+        intent.putExtra("FOODNAME", item.alphaChar)
+        intent.putExtra("FOODINGREDIENT", item.ingredient)
+        intent.putExtra("FOODSAUCE", item.sauce)
+
+        startActivity(intent)
+    }
 }

@@ -16,6 +16,9 @@
     <string name="title">title</string>
     <string name="foodnames">食物名稱</string>
     <string name="steps">步驟</string>
-    <string name="need_food">需要的食材 :</string>
-    <string name="sauce">需要的調味料 :</string>
+    <string name="need_food">/ 材料 /</string>
+    <string name="sauce">/ 調味料 /</string>
+    <string name="company">©橙嗜食驗©</string>
+    <string name="detailimage">detailimage</string>
+    <string name="dsteps">詳細步驟!!</string>
 </resources>
