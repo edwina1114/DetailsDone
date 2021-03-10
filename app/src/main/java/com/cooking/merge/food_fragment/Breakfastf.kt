@@ -65,6 +65,14 @@ class Breakfastf : Fragment() , OnFoodItemClickListener {
         "<辣味焦糖奶油醬>\n" + "蜂蜜或糖 1小匙\n" + "奶油 10g\n" + "乾辣椒片 1/4小匙\n" + "白醋 1/2小匙\n",
         ("鹽 適量\n" + "黑胡椒 適量"), ("不須調味料")
     )
+
+    private val links = arrayOf(
+        "http://blog.morningshop.tw/post/healthy-breakfast", "http://blog.morningshop.tw/post/healthy-breakfast", "https://icook.tw/recipes/313622",
+        "https://icook.tw/recipes/339624", "https://icook.tw/recipes/334694", "https://icook.tw/recipes/340861",
+        "https://icook.tw/recipes/330340", "https://icook.tw/recipes/322587", "https://icook.tw/recipes/299252",
+        "https://icook.tw/recipes/278519", "https://icook.tw/recipes/269552", "https://icook.tw/recipes/269552",
+        "https://icook.tw/recipes/308198", "https://icook.tw/recipes/340891"
+    )
     ////////////////////////////////////////////////array////////////////////////////////////////////////
 
     //(第一發生)顯示breakfast_layout的介面
@@ -102,7 +110,7 @@ class Breakfastf : Fragment() , OnFoodItemClickListener {
         val addlist: ArrayList<FooditemsModel> = ArrayList()
         for (i in titles.indices)
         {
-            val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i])
+            val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i],links[i])
             addlist.add(model)
         }
         return addlist
@@ -134,6 +142,7 @@ class Breakfastf : Fragment() , OnFoodItemClickListener {
         intent.putExtra("FOODNAME", item.alphaChar)
         intent.putExtra("FOODINGREDIENT", item.ingredient)
         intent.putExtra("FOODSAUCE", item.sauce)
+        intent.putExtra("FOODLINK", item.link)
 
         startActivity(intent)
     }

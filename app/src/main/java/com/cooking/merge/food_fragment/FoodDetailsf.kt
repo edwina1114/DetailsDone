@@ -4,7 +4,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.cooking.merge.R
 import kotlinx.android.synthetic.main.fooditems_details.*
 
@@ -15,18 +17,29 @@ class FoodDetailsf : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fooditems_details)
 
+        val toolbar: Toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         //////set data//////
         IV_detailsimage.setImageResource(getIntent().getStringExtra("FOODIMAGE")?.toInt()!!)
         TV_detailsname.text = getIntent().getStringExtra("FOODNAME")
         TV_food_need.text = getIntent().getStringExtra("FOODINGREDIENT")
         TV_sauce.text = getIntent().getStringExtra("FOODSAUCE")
         //////set data//////
+
+        BTN_link.setOnClickListener() {
+            val open_web_page = Intent(Intent.ACTION_VIEW, Uri.parse(getIntent().getStringExtra("FOODLINK")))
+            startActivity(open_web_page)
+        }
     }
-    fun clicklink(view: View?) {
-        val uri: Uri = Uri.parse("http://www.yahoo.com.tw")
-        val i = Intent(Intent.ACTION_VIEW, uri)
-        startActivity(i)
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
+
 
 }
 

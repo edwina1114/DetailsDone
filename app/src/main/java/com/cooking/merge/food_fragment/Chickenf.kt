@@ -16,7 +16,8 @@ import com.cooking.merge.adapters.OnFoodItemClickListener
 import com.cooking.merge.model.FooditemsModel
 import kotlinx.android.synthetic.main.fooditems_layout.view.*
 
-class Chickenf : Fragment() , OnFoodItemClickListener {
+class Chickenf: Fragment() , OnFoodItemClickListener
+ {
     private var recyclerView: RecyclerView? = null
     lateinit var gridLayoutManager: GridLayoutManager
     lateinit var foodList: ArrayList<FooditemsModel>
@@ -59,34 +60,43 @@ class Chickenf : Fragment() , OnFoodItemClickListener {
     )
 
     private val sauses = arrayOf(
-        "味噌 2匙\n" + "醬油 1匙\n" + "白胡椒粉 少許\n\n",
-        "<調味料> \n" + "麻油 1大匙\n" + "醬油膏 2.5大匙\n" + "米酒 2大匙" + "\n <醃料>\n" + "胡椒鹽 適量\n" + "米酒 1小匙 \n\n" ,
-        "黑麻油 1.5大匙\n" + "水 500ml\n" + "料理米酒 2大匙\n" + "蠔油 1大匙\n" + "醬油 4大匙\n" + "蜂蜜 1大匙\n\n",
-        "<調味料> \n" + "素蠔油 1大匙\n" + "味醂 1小匙\n" + "\n <醃料>\n" + "素蠔油 1大匙 \n" + "低鹽醬油 1大匙\n" + "米酒 1大匙\n" + "砂糖 1小匙\n\n",
-        "香菇素蠔油 2大匙\n" + "米酒 1大匙\n" + "砂糖 2匙\n" + "黑胡椒 1大匙\n" + "水 300~500c.c\n\n",
-        "豆豉醬 1大匙\n" + "糖 1小匙\n" + "米酒 2大匙\n" + "蠔油 2小匙\n\n",
+        "味噌 2匙\n" + "醬油 1匙\n" + "白胡椒粉 少許\n",
+        "<調味料> \n" + "麻油 1大匙\n" + "醬油膏 2.5大匙\n" + "米酒 2大匙" + "\n <醃料>\n" + "胡椒鹽 適量\n" + "米酒 1小匙 \n" ,
+        "黑麻油 1.5大匙\n" + "水 500ml\n" + "料理米酒 2大匙\n" + "蠔油 1大匙\n" + "醬油 4大匙\n" + "蜂蜜 1大匙\n",
+        "<調味料> \n" + "素蠔油 1大匙\n" + "味醂 1小匙\n" + "\n <醃料>\n" + "素蠔油 1大匙 \n" + "低鹽醬油 1大匙\n" + "米酒 1大匙\n" + "砂糖 1小匙\n",
+        "香菇素蠔油 2大匙\n" + "米酒 1大匙\n" + "砂糖 2匙\n" + "黑胡椒 1大匙\n" + "水 300~500c.c\n",
+        "豆豉醬 1大匙\n" + "糖 1小匙\n" + "米酒 2大匙\n" + "蠔油 2小匙\n",
         "<調味料>\n" + "醬油 適量\n" + "油膏 適量\n" + "砂糖 適量\n" + "黑胡椒粒 適量\n" + "水 適量\n" + "\n<醃料>\n" + "醬油 少許\n" +
-        "米酒 少許 \n" + "砂糖 少許\n" + "胡椒粉 少許\n" + "太白粉 兩匙\n\n",
-        "<雞胸醃料>\n" + "鹽 1小匙\n" + "開水 200ml\n" + "\n <泰式醬料>\n" + "新鮮檸檬汁 半顆 \n" + "糖 2小匙\n" + "魚露 1大匙\n" + "蒜泥 1瓣\n" + "香菜碎 1株\n\n",
-        "醬油 20c.c\n" + "味琳 20c.c\n" + "水 20c.c\n" + "白芝麻 少許", "鹽 適量\n" + "七味粉 適量\n\n",
-        "醬油 50ml\n" + "二砂糖 30g\n" + "罐裝啤酒 1罐", "米酒 1大匙\n" + "蠔油 1大匙\n" + "番茄醬 0.5大匙\n" + "糖 1小撮\n\n",
-        "醬油 4大匙\n" + "蠔油 2大匙\n" + "米酒 2大匙\n" + "糖 1小匙\n" + "五香粉 1/4小匙\n" + "八角 1個 \n" + "水 500ml\n\n",
-        "蜂蜜 1.5大匙\n" + "蠔油 2大匙\n" + "醬油 1大匙\n" + "蒜頭 3瓣\n" + "研磨黑胡椒 轉15下\n\n",
-        "蠔油 1大匙\n" + "米酒 0.5大匙\n" + "水 200ml\n" + "糖 0.5小匙\n" + "胡椒粉 1/4小匙\n\n",
-        "<調味料>" + "胡椒鹽 適量\n" + "\n<醃料>\n" + "美乃滋 3大匙 \n" + "番茄醬 1.5大匙\n" + "研磨黑胡椒 適量\n" + "義大利香料 適量\n" + "蒜泥 2瓣\n\n",
-        "<調味料>\n" + "米酒 1大匙 \n" + "醬油 1大匙\n" + "味醂 1大匙\n" + "番茄醬 1/2小匙\n" + "薑泥 2小匙\n" + "\n<醃料> \n" + "白胡椒鹽 適量\n" + "咖哩粉 1大匙\n\n",
-        "<調味料>\n" + "白胡椒鹽 適量\n" + "\n<醃料>\n" + "咖哩粉 1大匙\n" + "番茄醬 2大匙\n" + "希臘式優格(有無糖皆可) 3大匙\n" + "蒜泥 2瓣\n" + "鹽 1/4小匙\n\n",
-        "白胡椒鹽 適量\n" + "醬油 1大匙\n" + "新鮮檸檬汁 1-2小匙","甜辣醬 4大匙\n" + "蜂蜜 1大匙\n" + "研磨黑胡椒 適量\n" + "義式香料 適量\n\n",
-        "鹽 1/4小匙\n" + "咖哩粉 2小匙\n" + "薑黃粉2小匙\n" + "孜然粉 1小匙\n" + "米酒 2大匙\n\n",
-        "醬油 1.5大匙\n" + "蒜末 1瓣\n" + "耐高溫植物油 1大匙\n" + "檸檬汁 1/2大匙\n" + "研磨黑胡椒 1/2小匙\n" + "鹽 1/8小匙\n\n",
-        "鹽 適量\n" + "研磨黑胡椒 適量\n" + "蛋 1顆\n" + "起司粉 3大匙\n" + "麵包粉 1大匙\n" + "玉米粉(或太白粉) 2小匙\n" + "香草鹽 適量\n\n",
-        "米酒 1小匙\n" + "白胡椒鹽 適量\n" + "咖哩粉 1小匙\n" + "起司粉 1小匙\n" + "美乃滋 1/2大匙\n" + "義式香料 適量\n" + "玉米粉(可略) 1小匙\n\n",
-        "<調味料>\n" + "耐高溫植物油 適量\n" + "\n<醃料> \n" + "鹽麴 1大匙\n" + "蒜泥 1瓣\n" + "研磨黑胡椒 適量\n" + "檸檬汁 1大匙\n" + "醬油 1小匙\n\n",
+        "米酒 少許 \n" + "砂糖 少許\n" + "胡椒粉 少許\n" + "太白粉 兩匙\n",
+        "<雞胸醃料>\n" + "鹽 1小匙\n" + "開水 200ml\n" + "\n <泰式醬料>\n" + "新鮮檸檬汁 半顆 \n" + "糖 2小匙\n" + "魚露 1大匙\n" + "蒜泥 1瓣\n" + "香菜碎 1株\n",
+        "醬油 20c.c\n" + "味琳 20c.c\n" + "水 20c.c\n" + "白芝麻 少許", "鹽 適量\n" + "七味粉 適量\n",
+        "醬油 50ml\n" + "二砂糖 30g\n" + "罐裝啤酒 1罐", "米酒 1大匙\n" + "蠔油 1大匙\n" + "番茄醬 0.5大匙\n" + "糖 1小撮\n",
+        "醬油 4大匙\n" + "蠔油 2大匙\n" + "米酒 2大匙\n" + "糖 1小匙\n" + "五香粉 1/4小匙\n" + "八角 1個 \n" + "水 500ml\n",
+        "蜂蜜 1.5大匙\n" + "蠔油 2大匙\n" + "醬油 1大匙\n" + "蒜頭 3瓣\n" + "研磨黑胡椒 轉15下\n",
+        "蠔油 1大匙\n" + "米酒 0.5大匙\n" + "水 200ml\n" + "糖 0.5小匙\n" + "胡椒粉 1/4小匙\n",
+        "<調味料>" + "胡椒鹽 適量\n" + "\n<醃料>\n" + "美乃滋 3大匙 \n" + "番茄醬 1.5大匙\n" + "研磨黑胡椒 適量\n" + "義大利香料 適量\n" + "蒜泥 2瓣\n",
+        "<調味料>\n" + "米酒 1大匙 \n" + "醬油 1大匙\n" + "味醂 1大匙\n" + "番茄醬 1/2小匙\n" + "薑泥 2小匙\n" + "\n<醃料> \n" + "白胡椒鹽 適量\n" + "咖哩粉 1大匙\n",
+        "<調味料>\n" + "白胡椒鹽 適量\n" + "\n<醃料>\n" + "咖哩粉 1大匙\n" + "番茄醬 2大匙\n" + "希臘式優格(有無糖皆可) 3大匙\n" + "蒜泥 2瓣\n" + "鹽 1/4小匙\n",
+        "白胡椒鹽 適量\n" + "醬油 1大匙\n" + "新鮮檸檬汁 1-2小匙","甜辣醬 4大匙\n" + "蜂蜜 1大匙\n" + "研磨黑胡椒 適量\n" + "義式香料 適量\n",
+        "鹽 1/4小匙\n" + "咖哩粉 2小匙\n" + "薑黃粉2小匙\n" + "孜然粉 1小匙\n" + "米酒 2大匙\n",
+        "醬油 1.5大匙\n" + "蒜末 1瓣\n" + "耐高溫植物油 1大匙\n" + "檸檬汁 1/2大匙\n" + "研磨黑胡椒 1/2小匙\n" + "鹽 1/8小匙\n",
+        "鹽 適量\n" + "研磨黑胡椒 適量\n" + "蛋 1顆\n" + "起司粉 3大匙\n" + "麵包粉 1大匙\n" + "玉米粉(或太白粉) 2小匙\n" + "香草鹽 適量\n",
+        "米酒 1小匙\n" + "白胡椒鹽 適量\n" + "咖哩粉 1小匙\n" + "起司粉 1小匙\n" + "美乃滋 1/2大匙\n" + "義式香料 適量\n" + "玉米粉(可略) 1小匙\n",
+        "<調味料>\n" + "耐高溫植物油 適量\n" + "\n<醃料> \n" + "鹽麴 1大匙\n" + "蒜泥 1瓣\n" + "研磨黑胡椒 適量\n" + "檸檬汁 1大匙\n" + "醬油 1小匙\n",
         "鹽 1小匙\n" + "研磨黑胡椒 適量\n" + "咖哩粉 適量\n" + "薑黃粉(可有可無) 適量", "九層塔 1把\n" + "信州味噌 2大匙\n" + "鹽麴 1大匙\n" + "味醂 1大匙\n" +
-        "米酒 1大匙\n" + "醬油 2小匙\n" + "糖 2小匙\n\n",
-        "紅糟醬 1大匙\n" + "味醂 1大匙\n" + "醬油 1小匙\n" + "蒜泥 1瓣\n\n"
-
+        "米酒 1大匙\n" + "醬油 2小匙\n" + "糖 2小匙\n",
+        "紅糟醬 1大匙\n" + "味醂 1大匙\n" + "醬油 1小匙\n" + "蒜泥 1瓣\n"
     )
+
+     private val links = arrayOf(
+         "https://icook.tw/recipes/342555", "https://icook.tw/recipes/270334", "https://icook.tw/recipes/242709", "https://icook.tw/recipes/162577",
+         "https://icook.tw/recipes/122300", "https://icook.tw/recipes/321648", "https://icook.tw/recipes/119735", "https://icook.tw/recipes/312336",
+         "https://icook.tw/recipes/348068",  "https://icook.tw/recipes/117692", "https://icook.tw/recipes/121235", "https://icook.tw/recipes/300920",
+         "https://icook.tw/recipes/293369", "https://icook.tw/recipes/320936", "https://icook.tw/recipes/329136", "https://icook.tw/recipes/315014",
+         "https://icook.tw/recipes/307480", "https://icook.tw/recipes/302616", "https://icook.tw/recipes/298611", "https://icook.tw/recipes/260493",
+         "https://icook.tw/recipes/288293", "https://icook.tw/recipes/295269", "https://icook.tw/recipes/281874", "https://icook.tw/recipes/276299",
+         "https://icook.tw/recipes/294308", "https://icook.tw/recipes/310629", "https://icook.tw/recipes/308976", "https://icook.tw/recipes/301920"
+     )
     ////////////////////////////////////////////////array////////////////////////////////////////////////
 
     //(第一發生)顯示easy_layout的介面
@@ -122,7 +132,7 @@ class Chickenf : Fragment() , OnFoodItemClickListener {
         val addlist: ArrayList<FooditemsModel> = ArrayList()
         for (i in titles.indices)
         {
-            val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i])
+            val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i], links[i])
             addlist.add(model)
         }
         return addlist
@@ -135,6 +145,7 @@ class Chickenf : Fragment() , OnFoodItemClickListener {
         intent.putExtra("FOODNAME", item.alphaChar)
         intent.putExtra("FOODINGREDIENT", item.ingredient)
         intent.putExtra("FOODSAUCE", item.sauce)
+        intent.putExtra("FOODLINK", item.link)
 
         startActivity(intent)
     }

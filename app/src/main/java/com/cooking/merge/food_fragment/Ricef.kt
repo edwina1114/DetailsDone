@@ -16,7 +16,8 @@ import com.cooking.merge.adapters.OnFoodItemClickListener
 import com.cooking.merge.model.FooditemsModel
 import kotlinx.android.synthetic.main.fooditems_layout.view.*
 //, OnFoodItemClickListener
-class Ricef : Fragment()  {
+class Ricef: Fragment() {}
+    /*  {
 //    private var recyclerView: RecyclerView? = null
 //    lateinit var gridLayoutManager: GridLayoutManager
 //    lateinit var foodList: ArrayList<FooditemsModel>
@@ -92,3 +93,4 @@ class Ricef : Fragment()  {
 //    }
 
 }
+*/
