@@ -112,7 +112,6 @@ class Ricef: Fragment() , OnFoodItemClickListener
          }
 
          fun addfood(): ArrayList<FooditemsModel> {
-             //array的方法 (way1)
              val addlist: ArrayList<FooditemsModel> = ArrayList()
              for (i in titles.indices)
              {

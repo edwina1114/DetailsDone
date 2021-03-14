@@ -92,7 +92,6 @@ class Soupf : Fragment(), OnFoodItemClickListener {
     }
 
     fun addfood(): ArrayList<FooditemsModel> {
-        //array的方法 (way1)
         val addlist: ArrayList<FooditemsModel> = ArrayList()
         for (i in titles.indices) {
             val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i], links[i])

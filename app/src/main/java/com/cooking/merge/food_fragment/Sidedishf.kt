@@ -172,13 +172,11 @@ class Sidedishf : Fragment(), OnFoodItemClickListener {
         foodList = ArrayList()      //將foodList作為一個arraylist
         foodList = addfood()        //foodList存放圖片及名稱
 
-        foodiesAdapters =
-            FooditemsAdapter(requireContext(), this, foodList)   //adapter按照位置擺放foodlist裡的所有物品
+        foodiesAdapters = FooditemsAdapter(requireContext(), this, foodList)   //adapter按照位置擺放foodlist裡的所有物品
         recyclerView?.adapter = foodiesAdapters
     }
 
     fun addfood(): ArrayList<FooditemsModel> {
-        //array的方法 (way1)
         val addlist: ArrayList<FooditemsModel> = ArrayList()
         for (i in titles.indices) {
             val model = FooditemsModel(images[i], titles[i], ingredients[i], sauses[i], links[i])
